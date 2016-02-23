@@ -1,0 +1,2579 @@
+@import url(http://fonts.googleapis.com/css?family=Graduate:400,700,300);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,300);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic);
+@import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
+$font-family-base: 'Open Sans', 'Source Sans Pro', sans-serif;
+$navbar-height: 60px !default;
+// Import bootstrap and fontawesome
+@import "variables";
+@import "bootstrap";
+@import "bootstrap/theme";
+@import "font-awesome";
+$sapl_color_principal: #006556;
+$sapl_color_secondary: #169f84;
+$sapl_color_border: #951818;
+$sapl1_color_principal: #006556;
+$sapl1_color_border: #d03800;
+$hover_background_10p: rgba(0,0,0,0.1);
+$hover_background_20p: rgba(0,0,0,0.2);
+$hover_background_50p: rgba(0,0,0,0.5);
+$hover_background_10pw: rgba(207,220,252,.1);
+$hover_background_20pw: rgba(207,220,252,.2);
+
+$avatar_parlamentares: 79px;
+
+$sapl_color_materia: #2980B9;
+$sapl_color_sessao: #0e863e;
+$sapl_color_autografo: #f15d66;
+$sapl_color_norma: #c99805; //d09c01
+$sapl_color_diario: #951818; //caa0303
+
+
+@mixin placeholder($color, $opacity, $fontsize, $fontweight) {
+    &::-webkit-input-placeholder {
+        color: $color !important;
+        opacity: $opacity;
+        font-size: $fontsize;
+        font-weight: $fontweight;
+    }
+    &::-moz-placeholder {
+        color: $color !important;
+        opacity: $opacity;
+        font-size: $fontsize;
+        font-weight: $fontweight;
+    }
+    &::-moz-placeholder {
+        color: $color !important;
+        opacity: $opacity;
+        font-size: $fontsize;
+        font-weight: $fontweight;
+    }
+    &:-ms-input-placeholder {
+        color: $color !important;
+        opacity: $opacity;
+        font-size: $fontsize;
+        font-weight: $fontweight;
+    }
+}
+
+
+@mixin mw($percent) {
+    .mw {
+        max-width: #{$percent};
+        margin: 0 auto !important;
+    }
+}
+
+@mixin mwTipo($tipo, $percent) {
+    .mw-#{$tipo} {
+        max-width: #{$percent};
+        margin: 0 auto !important;
+    }
+}
+
+
+@mixin header($percent) {
+    h1, .h1 { font-size: $font-size-h1 * $percent / 100; }
+    h2, .h2 { font-size: $font-size-h2 * $percent / 100; }
+    h3, .h3 { font-size: $font-size-h3 * $percent / 100; }
+    h4, .h4 { font-size: $font-size-h4 * $percent / 100; }
+    h5, .h5 { font-size: $font-size-h5 * $percent / 100; }
+    h6, .h6 { font-size: $font-size-h6 * $percent / 100; }
+}
+
+
+
+
+@keyframes balance {
+    0% { transform: translate(2px, 1px) rotate(0deg); }
+    9% { transform: translate(-1px, -2px) rotate(-1deg); }
+    18% { transform: translate(-3px, 0px) rotate(1deg); }
+    27% { transform: translate(0px, 2px) rotate(0deg); }
+    36% { transform: translate(1px, -1px) rotate(1deg); }
+    45% { transform: translate(-1px, 2px) rotate(-1deg); }
+    54% { transform: translate(-3px, 1px) rotate(0deg); }
+    63% { transform: translate(2px, 1px) rotate(-1deg); }
+    72% { transform: translate(-1px, -1px) rotate(1deg); }
+    81% { transform: translate(2px, 2px) rotate(0deg); }
+    90% { transform: translate(1px, -2px) rotate(-1deg); }
+    100% { transform: translate(2px, 1px) rotate(0deg); }
+}
+
+
+
+
+*,
+*::after,
+*::before,
+*:hover {
+    transition: all 0.2s ease-in-out;
+}
+.page-container {
+    position: relative;
+}
+
+.navbar.main {
+    background-image: none;
+    background-color: $sapl_color_principal;
+    border-bottom: 2px solid $sapl_color_border;
+    margin: 0;
+    height: $navbar-height;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: $navbar-height;
+        opacity: 0.3;
+        z-index: -1;
+        background: transparent url(http://www.camarajatai.go.gov.br/portal/images/bg_cmj_topo_menu_box_left.png) no-repeat scroll left top;
+        background-size: auto $navbar-height;
+    }
+    .container-fluid {
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        position: relative;
+    }
+
+    .navbar-toggle {
+        flex-grow: 1;
+        float: none;
+        border: none;
+        margin: 12px 2px 0 14px;
+        &:hover {
+            background: $hover_background_20p;
+        }
+        &:focus {
+            background: $hover_background_20p;
+        }
+        .icon-bar {
+            background-color: #fff;
+            height: 3px;
+            + .icon-bar {
+                margin-top: 5px;
+            }
+        }
+    }
+    .navbar-brand {
+        flex: 0 1 auto;
+        margin-left: 0;
+        color: #fff;
+        display: block;
+        font-size: 1.5em;
+        line-height: 0.85em;
+        padding: 0.55em 0.4em 0;
+        text-align: center;
+        &:hover {
+            background-color: $hover_background_10p;
+        }
+        span {
+            white-space: nowrap;
+            font-family: Graduate;
+            display: block;
+            text-align: center;
+            &:last-child {
+                font-size: 42%;
+                font-family: $font-family-base;
+                color: rgba(255,255,255,.78);
+            }
+        }
+    }
+    .navbar-form {
+        flex: 1 0 8em;
+        height: ($navbar-height * 0.55);
+        padding: 0;
+        margin: ($navbar-height * 0.225) 11px;
+        border: 0 solid #fff;
+        box-shadow: 0 0 0;
+        .form-control {
+            border-radius: 20px;
+            padding-left: 43px;
+            height: 100%;
+            width: 100%;
+            transition: all 0.3s ease;
+            background: url(http://sapl.camarajatai.go.gov.br/sapl/imagens/search_box_icon48.png) no-repeat 5px center;
+            background-size: auto 70%;
+            background-color: rgba(255,255,255,0.2);
+            border: 0 solid #fff;
+            font-size: 100%;
+            color: #fff;
+
+            &:hover,
+            &:focus {
+                font-size: 120%;
+                color: $sapl_color_materia;
+                background-color: rgba(255,255,255,0.8);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 255, 255, 0.3);
+                @include placeholder($sapl_color_materia, 1, 100%, normal);
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
+            @include placeholder(#fff, 1, 100%, normal);
+        }
+
+        .form-filters {
+            left: 250px;
+            position:absolute;
+            top: -0px;
+            opacity: 0;
+            right: 0px;
+            color: white;
+            padding: 0.6em;
+            background-color: $sapl_color_principal;
+            transform: scaleY(0);
+            transition: all 0.3s ease-in-out;
+
+            &.active {
+
+                top: 100%;
+                transform: scaleY(1);
+                opacity: 1;
+                .form-group {
+                    display: block;
+                }
+            }
+        }
+
+    }
+    .nav.principal {
+        flex: 0 1 auto;
+    }
+    .active {
+        background-color: $hover_background_10p;
+        a {
+            padding-left: 1.5em;
+            padding-right: 1.5em;
+            background-image: none;
+            background-color: transparent;
+        }
+    }
+}
+
+.nav li,
+.nav ul,
+.nav {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.nav {
+    ul {
+        background-color: $sapl_color_principal;
+        z-index: 1;
+    }
+    li {
+        display: inline-block;
+        a {
+            color: white;
+            white-space: nowrap;
+            width: 100%;
+            height: 100%;
+            display: table-cell;
+            background-color: transparent;
+            text-decoration: none;
+            font-size: 80%;
+            &:hover, &:focus  {
+                background-color: transparent;
+            }
+
+            .icon-nav-left {
+                img {
+                    height: 24px;
+                }
+            }
+            .icon-nav-top {
+                width: 100%;
+                display: block;
+                text-align: center;
+                img {
+                    height: 24px;
+                }
+            }
+            &.active {
+                padding-left: 1.5em;
+                padding-right: 1.5em;
+            }
+        }
+        ul {
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.19), 0 2px 6px rgba(0, 0, 0, 0.23);
+            border-radius: 3px;
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            clip: rect(0, 0, 0, 0);
+            transform: translate(0px,30px);
+            transition: all 0.3s cubic-bezier(.55,0,.1,1), clip 0s 0s;
+
+            &::before {
+                content: '';
+                position: absolute;
+                visibility: inherit;
+                top: -5px;
+                left: 10px;
+                background-color: $sapl_color_principal;
+                width: 10px;
+                height: 10px;
+                transform: rotate(45deg);
+                z-index: -1;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                visibility: inherit;
+                width: 100%;
+                left: 0px;
+                top: -15px;
+                bottom: 0;
+                z-index: -1;
+                opacity: 0.2;
+                background: transparent url(http://www.camarajatai.go.gov.br/portal/images/bg_cmj_topo_menu_box_right.png) no-repeat scroll right top;
+                background-size: auto 20%;
+                transform: scaleY(-1);
+            }
+
+            li {
+                width: 100%;
+                float: left;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                a {
+                    padding: 6px 10px;
+                    font-size: 80%;
+                    display: block;
+                }
+                ul {
+                    left:90%;
+                    top: -20px;
+                    &::before {
+                        left: -5px;
+                        top: 14px;
+                    }
+                }
+                &.copy:nth-child(odd) {
+                    background-color: rgba(0, 0, 0, 0.02);
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.2);
+                    }
+                }
+            }
+        }
+        &:hover {
+            background-color: $hover_background_20p;
+            & > ul {
+                clip: auto;
+                visibility: visible;
+                opacity: 1;
+                transform: translate(0px,15px);
+            }
+        }
+
+
+        &.nav-item-usuario {
+            a {
+                padding-left: 1.2em;
+                padding-right: 1.2em;
+            }
+            ul {
+                right: 0;
+                li {
+                    text-align: center;
+                    width: 100%;
+                    &:hover {
+                        background-color: transparent;
+                    }
+                    span {
+                        color: white;
+                        font-size: 80%;
+                        padding: 2px;
+                    }
+                    a {
+                        padding: 0.5em 3em;
+                        &:hover {
+                            background-color: $hover_background_10p;
+                        }
+                    }
+                }
+                &::before {
+                    left: auto;
+                    right: 10px;
+                }
+                &::after {
+                    background-size: auto 80%;
+                }
+            }
+            &:hover {
+                ul {
+                    transform: translate(0px,8px);
+                }
+            }
+        }
+    }
+
+    &.nav-horizontal {
+        & > li {
+            height: $navbar-height;
+            display: table-cell;
+            vertical-align: middle;
+            & > a {
+                padding: 1.5em 1em 1.6em;
+            }
+        }
+    }
+
+    &.principal {
+        & > li {
+            height: $navbar-height;
+            float: left;
+            & > a  {
+                padding: 1.5em 0em 1.7em;
+                span {
+                    padding: 0 0.4em 0;
+                }
+            }
+
+        }
+    }
+}
+
+#sidebar{
+    width: 48px;
+    position: absolute;
+    background-color: #212a2d; //#212a2d;
+    background: -moz-linear-gradient(left,  rgba(#091426,.99) 0%, #000000 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  rgba(#091426,.99) 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  rgba(#091426,.99) 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#091426', endColorstr='#000000',GradientType=1 ); /* IE6-9 */
+
+    min-height: 916px;
+
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    //box-shadow: 0 6px 19px rgba(0, 0, 0, 0.56), 0 1px 4px rgba(0, 0, 0, 0.23);
+    .logo {
+        transition: width 0s;
+        width: 48px;
+        position: fixed;
+        padding: 4px;
+        opacity: 0.7;
+        bottom: 0;
+        display: block;
+        img {
+            transition: width 0s;
+            width: 40px;
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }
+    footer {
+        color: white;
+        font-size: 65%;
+        display: none;
+        opacity: 0.5;
+        text-align: center;
+        padding: 0 1em;
+        bottom: 0;
+        &:hover {
+            opacity: 1;
+            .logos {
+                opacity: 1;
+            }
+        }
+    }
+
+
+
+    .nav {
+        & > li {
+            height: 50px;
+            border-left: 3px solid transparent;
+            border-bottom: 1px solid #2a3940;
+            margin-right: 0;
+            width: 48px;
+            display: block;
+            &:hover {
+                border-left: 3px solid $sapl_color_border;
+                background-color: rgba(0, 0, 0, 0.15);
+            }
+            & > a {
+                height: 50px;
+                width: 100%;
+                padding: 10px 0;
+                color: #c7d6dd;
+                font-weight: 400;
+                font-size: 90%;
+                display: block;
+                background-color: transparent;
+                &:hover {
+                    background-color: $hover_background_20pw;
+                    color: #fff;
+                }
+                span {
+                    display: table-cell;
+                    font-size: 110%;
+                    padding: 3px 6px;
+                    &:first-child {
+                        width: 24px;
+                        table-layout: fixed;
+                        vertical-align: top;
+                    }
+                    &:last-child {
+                        transform: scale(0);
+                        opacity: 0;
+                        transform-origin: left;
+                        clip: rect(0, 0, 0, 0);
+                        vertical-align: middle;
+                        padding: 0;
+                        left: -250px;
+                        font-size: 0;
+                    }
+                }
+            }
+            &.border-norma:hover {
+                border-left: 3px solid $sapl_color_norma;
+            }
+            &.border-autografo:hover {
+                border-left: 3px solid $sapl_color_autografo;
+            }
+            &.border-diario:hover {
+                border-left: 3px solid $sapl_color_diario;
+            }
+            &.border-materia:hover {
+                border-left: 3px solid $sapl_color_materia;
+            }
+            &.border-sessao:hover {
+                border-left: 3px solid $sapl_color_sessao;
+            }
+            & > ul {
+                left: 99%;
+                top: -8px;
+                &::before {
+                    left: -5px;
+                    top: 14px;
+                }
+            }
+        }
+    }
+    &.active,
+    &.active-first {
+        width: 250px;
+
+        background: -moz-linear-gradient(left,  rgba(#091426,.95) 0%, #000000 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left,  rgba(#091426,.95) 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right,  rgba(#091426,.95) 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#091426', endColorstr='#000000',GradientType=1 ); /* IE6-9 */
+
+        .nav {
+            width: 250px;
+            position: relative;
+            & > li {
+                width: 250px;
+                & > a {
+                    span {
+                        &:last-child {
+                            transform: scale(1);
+                            opacity: 1;
+                            transform-origin: left;
+                            clip: auto;
+                            left: 0;
+                            font-size: 100%;
+                        }
+                    }
+                }
+                & > ul {
+                    left: 90%;
+                    top: -8px;
+                    &::before {
+                        left: -5px;
+                        top: 14px;
+                    }
+                }
+            }
+        }
+        .logo {
+            transition: width 0s;
+            position: relative;
+            width: 100%;
+            text-align: center;
+            display: inline-block;
+            padding: 1em 0 0.5em;
+            opacity: 0.7;
+            bottom: 0;
+            img {
+                transition: width 0s;
+                width: 70%;
+            }
+            &:hover {
+                opacity: 1;
+            }
+        }
+        footer {
+            display: block;
+        }
+    }
+    &.fixed {
+        position: fixed;
+        top: $navbar-height;
+    }
+}
+
+#main-container {
+    margin: $navbar-height 0 0 0;
+    margin-left: 48px;
+    padding-top: $grid-gutter-width;
+    background-color: rgba(0, 0, 0, 0.1);
+    & > div.container-fluid {
+    }
+    &.active,
+    &.active-first {
+        margin-left: 250px;
+    }
+    &.active-first {
+        transition: all 0s;
+        * {
+            transition: all 0s;
+        }
+    }
+}
+
+#rodape {
+    background-color: $sapl_color_principal;
+    color: #fff !important;
+    font-family: 'Open Sans', sans-serif !important;
+    z-index: 998;
+}
+
+
+/* -----CORPO---------------------------------------------------------*/
+
+h1, h2, h3, h4 {
+    color: $sapl_color_principal;
+    margin: 0;
+    padding: 0;
+
+}
+
+.box {
+    background: rgba(#FFF,.9);
+    border: 1px solid #ddd;
+    margin-bottom: $grid-gutter-width;
+    border-radius: 3px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    color: #cdcdcd;
+    background-color: #cdcdcd;
+    width: 100%;
+    text-align: center;
+}
+
+.ajax-Top, .ajax-Bottom {
+    width: 100%;
+    text-align: center;
+    display: none;
+    .fo {
+        margin-bottom: 1em;
+    }
+}
+
+
+
+.avatar100pct {
+    border-radius: 50%;
+    border: 0px solid white;
+    margin: 0 0 0 0;
+    opacity: 0.9;
+    width: 100%;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.container-parlamentares {
+    position:fixed;
+    top: 60px;
+    right: 0px;
+    z-index: 1000;
+
+    .nav-horizontal {
+        margin-top: 5px;
+        float: right;
+        li {
+            float: right;
+            position: relative;
+            vertical-align: top;
+            display: none;
+            margin: 0 5px;
+            &:last-child:not(:only-child) {
+                display: block;
+                a {
+                    padding: 0px;
+                    .avatar100pct {
+                        width: $avatar_parlamentares * 0.8;
+                        height: $avatar_parlamentares * 0.8;
+                        opacity: 0.5;
+                        background: rgba(#00a, .2);
+                        padding: 3px;
+                    }
+                }
+            }
+            &:hover {
+                background-color: transparent;
+            }
+        }
+    }
+
+    .nav-vertical {
+        position: absolute;
+        bottom: 0px;
+        right: 0;
+        display: none;
+        margin-bottom: 23px;
+        li {
+            float: right;
+            &:nth-child(2), &:nth-child(4), &:nth-child(7), &:nth-child(11), &:nth-child(16), &:nth-child(22), &:nth-child(29), &:nth-child(37), &:nth-child(46), &:nth-child(56), &:nth-child(67), &:nth-child(79) {
+                clear:right;
+            }
+            &:hover {
+                background-color: transparent;
+            }
+            a {
+                padding: 0;
+                .avatar100pct {
+                    width: $avatar_parlamentares * 0.6;
+                    height: $avatar_parlamentares * 0.6;
+                    margin: 5px;
+                    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+                    opacity: .7;
+                    &:hover {
+                        box-shadow: 0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32);
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    &.active {
+        bottom: 0px;
+        .nav-vertical {
+            display: block;
+        }
+
+        .nav-horizontal {
+            li {
+                span {
+                    display: none;
+                }
+                &:not(:only-child) {
+                    display: table-cell;
+                    a {
+                        padding: 0;
+                        .avatar100pct {
+                            width: $avatar_parlamentares;
+                            height: $avatar_parlamentares;
+                            box-shadow: 0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32);
+                        }
+                        &:hover {
+                            span {
+                                display: block;
+                                position: absolute;
+                                text-align: center;
+                                left: 0;
+                                right: 0;
+                                bottom:10%;
+                                text-shadow: 0 0 8px #000;
+                                color: #fff;
+                                font-weight: bold;
+                                font-size: 12px;
+                                white-space: normal;
+                            }
+                            .avatar100pct {
+                                opacity: 1;
+                                width: $avatar_parlamentares * 2;
+                                height: $avatar_parlamentares * 2;
+                            }
+                        }
+                    }
+
+                }
+                &:not(:only-child):last-child  {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &.container-relative {
+        position:relative;
+        top: 0px;
+        right: 0px;
+        z-index: 990;
+        margin-top: 0;
+        background-color: #fff;
+
+        .voltarParlamentar {
+            transform: scaleX(-1);
+            position: absolute;
+            font-size: 150%;
+            padding: 12px;
+            z-index: 2;
+            left: 0px;
+        }
+        .nav-horizontal {
+            margin: 0;
+            float: none;
+            padding: $grid-gutter-width * 0.75;
+            li {
+                display: block;
+                height: auto;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                &:only-child {
+                    a {
+                        padding: 0px;
+                        display: block;
+                        width: 100%;
+                        .avatar100pct {
+                            width: 100%;
+                            height: auto;
+                            opacity: 0.9;
+                            background: transparent;
+                            padding: 0px;
+                            clear: right;
+                        }
+                        span {
+                            display: block;
+                            font-size: 1.5em;
+                            line-height: 0.8em;
+                            text-align: center;
+                            bottom: 5%;
+                            width: 100%;
+                            margin: 5px auto;
+                            white-space: normal;
+                            color: $sapl_color_principal;
+                            small {
+                                display: inline-block;
+                                padding-top: 5px;
+                                color: $brand-info;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .nav-pills {
+            li {
+                width: 100%;
+                float: left;
+                border-top: 1px solid #eee;
+                margin: 0px;
+                a {
+                    white-space: normal;
+                    float: left;
+                    width: 90%;
+                    padding: 5px 0.5em 5px 1em ;
+                    color: $sapl_color_secondary;
+                    span {
+                        &:first-child {
+                            display: none;
+                        }
+                    }
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+                & > span {
+                    position: absolute;
+                    right: 0;
+                    margin: 5px 0.5em;
+                    opacity: 0.3;
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+
+                &:hover {
+                    background-color: $sapl_color_secondary;
+                    & > span {
+                        opacity: 1;
+                        color: $sapl_color_secondary;
+                        background-color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.avatar25pct {
+    border-radius: 50%;
+    width: 25%;
+    border: 0px solid white;
+    padding: 0px;
+}
+
+.avatar20pct {
+    border-radius: 50%;
+    width: 20%;
+    border: 0px solid white;
+    padding: 0px;
+}
+
+.avatar25pct_border_out {
+    border-radius: 50%;
+    width: 25%;
+    border: 5px solid $sapl_color_principal;
+}
+
+.avatar20pct_border_out {
+    border-radius: 50%;
+    width: 20%;
+    border: 2px solid $sapl_color_principal;
+    padding: 5px;
+    background-color: white;
+}
+
+.module-parlamentares {
+    h2 {
+        padding: ($grid-gutter-width * 0.667);
+    }
+    h3 {
+        padding: ($grid-gutter-width * 0.3);
+    }
+    .legislaturas {
+        margin: $grid-gutter-width ($grid-gutter-width * 0.667);
+    }
+}
+
+
+.thumbnail {
+    background-color: transparent;
+    margin: 0;
+    border-radius: 0;
+
+    &:hover {
+        background-color: $hover_background_20pw;
+    }
+
+    &.parlamentares {
+        box-shadow: 0 0 0;
+        border: 0px;
+        padding: $grid-gutter-width * 1.5;
+
+        .caption {
+            padding: 0;
+        }
+
+        .texto-parlamentar {
+            margin-top: 0.5em;
+        }
+
+        .margin-to-left {
+            margin-left: 0%;
+            margin-right: 1em;
+        }
+
+        .margin-to-right {
+            margin-right: 0%;
+            margin-left: 1em;
+        }
+
+
+        h2 {
+            padding:0;
+            a {
+                border-bottom: 1px solid $sapl_color_principal;
+                display:block;
+                padding: 3px 5%;
+                &:hover {
+                    color: white;
+                    background-color: $sapl_color_principal;
+                }
+                &.margin-to-left {
+                    margin-left: 10%;
+                    margin-right: $grid-gutter-width * -1.5 ;
+                    text-align: right;
+                }
+
+                &.margin-to-right {
+                    margin-right: 10%;
+                    margin-left: $grid-gutter-width * -1.5 ;
+                    text-align: left;
+                }
+            }
+        }
+        img {
+        }
+        .partidoLogo {
+            width: 15%;
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+
+/* ----- qs-container-------------------------------------------------*/
+
+.qs-container {
+    position: relative;
+    .qs-topo {
+        display: inline-block;
+        padding: 3px 3px 0px 7px;
+        background-color: rgba(#003, 0.04);
+        width: 100%;
+		div {
+			display: table;
+		}
+        .qs-titulo {
+            display: table-cell;
+            width: 100%;
+            vertical-align: middle;
+            font-size: 90%;
+            font-weight: bold;
+            line-height: 120%;
+			color: darken($sapl_color_principal, 10%);
+            padding: 5px 5px 5px 10px;
+        }
+        .qs-autores {
+            display: table;
+            list-style: none;
+            margin: 0;
+            padding: 5px 0;
+            text-align: right;
+            li {
+                display: table-cell;
+				padding: 0 3px;
+                text-align: right;
+                a {
+                    display: inline-block;
+                    .avatar {
+                        height: $navbar-height * 0.6;
+                        border-radius: 50%;
+						opacity: 0.7;
+						&:hover {
+							opacity: 1;
+						}
+                    }
+                }
+                span {
+                    font-size: 95%;
+                    opacity: 0.5;
+                    width: 9em;
+                    text-align: right;
+                    line-height: 100%;
+                    display: inline-block;
+                }
+                &.linebreak {
+                    padding: 0;
+                    height: 3px;
+                    width: 0;
+                    table-layout: fixed;
+                    &:last-child {
+                        display: none;
+                        height: 0px;
+                    }
+                }
+            }
+        }
+    }
+    .qs-corpo {
+		margin: 0.4em 0.7em 0.7em;
+		.texto-ementa {
+			color: $sapl_color_secondary;
+            display: inline-block;
+		}
+
+        .qs-detalhes {
+            padding-top: 7px;
+            font-size: 85%;
+        }
+    }
+	&.qs-adm {
+		border-left: 10px solid #FF8F71;
+	}
+
+	&.qs-materia {
+        .qs-titulo {
+            color: $sapl_color_materia;
+        }
+        &::before {
+            content: "Matéria Legislativa";
+        }
+    }
+	&.qs-norma {
+        .qs-titulo {
+            color: darken($sapl_color_norma, 10%);
+        }
+        &::before {
+            content: "Norma Jurídica";
+        }
+    }
+	&.qs-diario {
+        .qs-titulo {
+            color: $sapl_color_diario;
+        }
+        &::before {
+            content: "Diário Oficial";
+        }
+    }
+	&.qs-autografo {
+        .qs-titulo {
+            color: $sapl_color_autografo;
+        }
+        &::before {
+            content: "Autógrafo";
+        }
+    }
+
+    &::before {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        color: #333;
+        font-size: 150%;
+        z-index: -1;
+    }
+
+    &:hover {
+        &.qs-materia {
+            background-color: rgba($sapl_color_materia,.7);
+        }
+        &.qs-norma {
+            background-color: rgba($sapl_color_norma,.8);
+        }
+        &.qs-diario {
+            background-color: rgba($sapl_color_diario,.8);
+        }
+        &.qs-autografo {
+            background-color: rgba($sapl_color_autografo,.8);
+        }
+        a {
+            color: white !important;
+            text-decoration: none;
+        }
+        &::before {
+            color: #aaa;
+        }
+    }
+}
+
+/* ----- qs-filtro-------------------------------------------------*/
+
+.qs-filtro {
+    .qs-topo {
+        position: relative;
+        background-color: $sapl_color_principal;
+        color: white;
+        font-size: 90%;
+        z-index: 1;
+        span {
+            padding: 5px;
+            display: inline-block;
+        }
+        a {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            color: white;
+            background-color: $sapl_color_principal;
+            text-decoration: none;
+            span {
+                background-color: lighten($sapl_color_principal,5%);
+                &:last-child {
+                    float: right;
+                    padding: 7px;
+                }
+                &:first-child {
+                    display: none;
+                }
+            }
+            &:hover {
+                left: 0;
+                span {
+                    &:first-child {
+                        display: block;
+                    }
+                    &:last-child {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            display: table;
+            width: 100%;
+            padding: 3px 8px 3px 14px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid rgba(#fff,.76);
+            background-color: #eee;
+            &.qs-grupo {
+                padding: 10px 8px ;
+                span {
+                    &.qs-button {
+                    }
+                }
+            }
+
+            span {
+                font-size: 100%;
+                display: table-cell;
+                width: 100%;
+                padding-right: 5px;
+                &.qs-grupo {
+                    font-variant: small-caps;
+                    color: $sapl_color_principal;
+                    font-size: 110%;
+                }
+                &.qs-button {
+                    padding: 4px;
+                    display: inline-block;
+                    opacity: 0.8;
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            a {
+                vertical-align: middle;
+                display: table-cell;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/* -------------------------------------------------------------------*/
+.ptrn-noise-darken {
+    background-image: url("data:image/png;base64,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");
+}
+.ptrn-fabric {
+    background-image: url("data:image/png;base64,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");
+}
+.ptrn-x {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACNJREFUeNpi+P//vy8QM0CxLyOIAQS+DBCwmYkBHaBrAQgwABiqHR3ZhUq0AAAAAElFTkSuQmCC");
+}
+.container-materia {
+    background-color: $sapl_color_materia !important;
+    border-bottom: 0px !important;
+    .container-materia {
+        background-color: darken($sapl_color_materia, 5%) !important;
+        &::before {
+            background-color: darken($sapl_color_materia, 5%) !important;
+        }
+    }
+    &::before {
+        background-color: $sapl_color_materia !important;
+    }
+}
+.container-norma {
+    background-color: $sapl_color_norma !important;
+    border-bottom: 0px !important;
+    .container-norma {
+        background-color: darken($sapl_color_norma, 5%) !important;
+        &::before {
+            background-color: darken($sapl_color_norma, 5%) !important;
+        }
+    }
+    &::before {
+        background-color: $sapl_color_norma !important;
+    }
+}
+.container-autografo {
+    background-color: $sapl_color_autografo !important;
+    border-bottom: 0px !important;
+    .container-autografo {
+        background-color: darken($sapl_color_autografo, 5%) !important;
+        &::before {
+            background-color: darken($sapl_color_autografo, 5%) !important;
+        }
+    }
+    &::before {
+        background-color: $sapl_color_autografo !important;
+    }
+}
+.container-diario-oficial {
+    background-color: $sapl_color_diario !important;
+    border-bottom: 0px !important;
+    .container-diario-oficial {
+        background-color: darken($sapl_color_diario, 5%) !important;
+        &::before {
+            background-color: darken($sapl_color_diario, 5%) !important;
+        }
+    }
+    &::before {
+        background-color: $sapl_color_diario !important;
+    }
+}
+.container-sessao {
+    background-color: $sapl_color_sessao !important;
+    border-bottom: 0px !important;
+    .container-sessao {
+        background-color: darken($sapl_color_sessao, 5%) !important;
+        &::before {
+            background-color: darken($sapl_color_sessao, 5%) !important;
+        }
+    }
+    &::before {
+        background-color: $sapl_color_sessao !important;
+    }
+}
+
+.text-materia {
+    background-color: $sapl_color_materia !important;
+    border-bottom: 0px !important;
+    .text-materia {
+        background-color: darken($sapl_color_materia, 5%) !important;
+        &::before {
+            background-color: darken($sapl_color_materia, 5%) !important;
+        }
+    }
+    &::before {
+        background-color: $sapl_color_materia !important;
+    }
+}
+.text-norma {
+    color: $sapl_color_norma !important;
+    border-bottom: 0px !important;
+    .text-norma {
+        color: darken($sapl_color_norma, 5%) !important;
+        &::before {
+            color: darken($sapl_color_norma, 5%) !important;
+        }
+    }
+    &::before {
+        color: $sapl_color_norma !important;
+    }
+}
+.text-autografo {
+    color: $sapl_color_autografo !important;
+    border-bottom: 0px !important;
+    .text-autografo {
+        color: darken($sapl_color_autografo, 5%) !important;
+        &::before {
+            color: darken($sapl_color_autografo, 5%) !important;
+        }
+    }
+    &::before {
+        color: $sapl_color_autografo !important;
+    }
+}
+.text-diario-oficial {
+    color: $sapl_color_diario !important;
+    border-bottom: 0px !important;
+    .text-diario-oficial {
+        color: darken($sapl_color_diario, 5%) !important;
+        &::before {
+            color: darken($sapl_color_diario, 5%) !important;
+        }
+    }
+    &::before {
+        background-color: $sapl_color_diario !important;
+    }
+}
+.text-sessao {
+    color: $sapl_color_sessao !important;
+    border-bottom: 0px !important;
+    .text-sessao {
+        color: darken($sapl_color_sessao, 5%) !important;
+        &::before {
+            color: darken($sapl_color_sessao, 5%) !important;
+        }
+    }
+    &::before {
+        color: $sapl_color_sessao !important;
+    }
+}
+
+
+.linksPages {
+    margin-bottom: $grid-gutter-width;
+    background-color: rgba(#000, 0.25);
+    background-image: linear-gradient(to bottom, transparent, rgba(#FFF, 0.2));
+    border-radius: 3px;
+    display: table;
+    text-align: center;
+    width: 100%;
+    font-size: 90%;
+    a {
+        color: white;
+    }
+
+    .linkPageLast, .linkPageNext, .linkPagePrevious, .linkPageFirst, .linkPageMiddle, .linkPageCurrent, .linkPagePrint  {
+        padding: 0.5em 0.5em;
+        display: table-cell;
+        border-color: #f9f9f9;
+        border-style: solid;
+        border-width: 0px;
+
+        &:hover {
+            background-color: $hover_background_20p;
+        }
+        a {
+            &:hover {
+                background-color: $hover_background_20p;
+            }
+        }
+
+    }
+    span {
+        &.linkPageLast, &.linkPageNext, &.linkPagePrevious, &.linkPageFirst, &.linkPageMiddle, &.linkPageCurrent, &.linkPagePrint  {
+            color: $sapl_color_principal;
+        }
+    }
+
+    .linkPageFirst {
+        border-right-width: 1px;
+    }
+
+    .linkPageLast {
+        border-left-width: 1px;
+    }
+    .linkPagePrevious {
+        border-right-width: 1px;
+    }
+    .linkPageMiddle {
+        border-right-width: 1px;
+    }
+
+    .linkPageCurrent {
+        border-right-width: 1px;
+        font-weight: bold;
+        background: rgba(#fff, 0.5);
+        &:hover {
+            background: transparent;
+        }
+    }
+    .linkPagePrint {
+        background: url(/sapl/imagens/ic_print.png) no-repeat center center;
+    }
+
+}
+
+.likebtn-sapl {
+   position: absolute;
+   right: 0;
+   bottom: 0;
+}
+
+
+@media screen and (max-width: 1199px) {
+    @include header(90);
+
+    .nav {
+        &.principal {
+            &.focus-in-search {
+                display: none;
+            }
+            li.active a {
+                padding-left: 0em;
+                padding-right: 0em;
+            }
+        }
+    }
+    .navbar.main {
+        .navbar-brand {
+            font-size: 1.4em;
+            padding: 0.63em 0.4em 0;
+            line-height: 0.85em;
+            span {
+                &:last-child {
+                    font-size: 42%;
+                }
+            }
+        }
+    }
+
+    .linksPages {
+        margin-bottom: $grid-gutter-width / 2;
+    }
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        padding-left: $grid-gutter-width / 4;
+        padding-right: $grid-gutter-width / 4;
+    }
+    .box {
+        margin-bottom: $grid-gutter-width / 2;
+    }
+    #main-container {
+        padding-top: $grid-gutter-width / 2;
+        .container-fluid {
+            padding-left: $grid-gutter-width * 0.75;
+            padding-right: $grid-gutter-width * 0.75;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    .nav.principal {
+        display: none !important;
+    }
+    .thumbnail {
+        &.parlamentares {
+            padding: $grid-gutter-width;
+
+            h2 {
+                a {
+                    &.margin-to-left {
+                    margin-right: $grid-gutter-width * -1 ;
+                    }
+
+                    &.margin-to-right {
+                        margin-left: $grid-gutter-width * -1 ;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .container-parlamentares {
+        .nav-horizontal {
+            li {
+                &:last-child:not(:only-child) {
+                    a {
+                        .avatar100pct {
+                            width: $avatar_parlamentares * 0.65;
+                            height: $avatar_parlamentares * 0.65;
+                        }
+                    }
+                }
+            }
+        }
+
+        .nav-vertical {
+            li {
+                a {
+                    .avatar100pct {
+                        width: $avatar_parlamentares * 0.55;
+                        height: $avatar_parlamentares * 0.55;
+                    }
+                }
+            }
+        }
+
+        &.active {
+            .nav-horizontal {
+                li {
+                    &:not(:only-child) {
+                        a {
+                            .avatar100pct {
+                                width: $avatar_parlamentares * 0.76;
+                                height: $avatar_parlamentares * 0.76;
+                            }
+                            &:hover {
+                                span {
+                                    bottom:13%;
+                                    font-weight: bold;
+                                    font-size: 11px;
+                                    line-height: 0.9em;
+                                }
+                                .avatar100pct {
+                                    width: $avatar_parlamentares * 1.4;
+                                    height: $avatar_parlamentares * 1.4;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.container-relative {
+            .voltarParlamentar {
+                font-size: 120%;
+                padding: 3px 8px;
+            }
+            .nav-horizontal {
+                padding: $grid-gutter-width / 4;
+                li {
+                    &:only-child {
+                        a {
+                            span {
+                                font-size: 1.3em;
+                            }
+                        }
+                    }
+                }
+            }
+            .nav-pills {
+                li {
+                    a {
+                        padding: 5px 0.5em 5px;
+                    }
+                    & > span {
+                        padding: 1px 5px;
+                        font-size: 12px;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .qs-container {
+        .qs-topo {
+            .qs-autores {
+                li {
+                    &.linebreak {
+                        &:nth-child(5n) {
+                        	display: table-row;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+
+    /* ----- qs-filtro-------------------------------------------------*/
+
+    .qs-filtro {
+        ul {
+            li {
+                padding: 2px 5px 2px 10px;
+                &.qs-grupo {
+                    padding: 5px;
+                }
+                span {
+                    font-size: 85%;
+                    padding-right: 3px;
+                }
+            }
+        }
+    }
+
+}
+@media screen and (max-width: 800px) {
+    @include header(85);
+    .navbar.main {
+        .navbar-header {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .navbar-toggle {
+            background-color: $hover_background_20p;
+        }
+    }
+    #sidebar  {
+        left: -250px;
+        .nav {
+            position: relative;
+            & > li {
+                & > a {
+                    span {
+                        &:last-child {
+                            transform: scale(1);
+                            opacity: 1;
+                            clip: auto;
+                        }
+                    }
+                }
+            }
+            ul {
+                //margin-left: 0px;
+                //left: 40%;
+            }
+        }
+        &.active {
+            left: 0;
+        }
+        &.active-first {
+            left: -250px;
+        }
+        &.fixed {
+            position: absolute;
+        }
+    }
+
+    .linksPages {
+        margin-bottom: $grid-gutter-width * 0.35;
+    }
+
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        padding-left: $grid-gutter-width * 0.2;
+        padding-right: $grid-gutter-width * 0.2;
+    }
+    .box {
+        margin-bottom: $grid-gutter-width  * 0.35;
+    }
+    #main-container {
+        padding-top: $grid-gutter-width * 0.35;
+
+        margin-left: 0;
+        &.active {
+            margin-left: 0;
+        }
+        &.active-first {
+            margin-left: 0;
+        }
+        .container-fluid {
+             padding-left: $grid-gutter-width * 0.6;
+            padding-right: $grid-gutter-width * 0.6;
+       }
+    }
+
+
+
+    .thumbnail {
+        &.parlamentares {
+            padding: $grid-gutter-width * 0.75;
+            h2 {
+                a {
+                    &.margin-to-left {
+                        margin-right: $grid-gutter-width * -0.75 ;
+                    }
+                    &.margin-to-right {
+                        margin-left: $grid-gutter-width * -0.75 ;
+                    }
+                }
+            }
+            .partidoLogo {
+                width: 15%;
+                margin-top: $grid-gutter-width / 5;
+            }
+        }
+        .texto-parlamentar {
+            font-size: 90%;
+        }
+    }
+
+
+
+    .container-parlamentares {
+        .nav-horizontal {
+            li {
+                margin: 0 3px;
+                &:last-child:not(:only-child) {
+                    a {
+                        .avatar100pct {
+                            width: $avatar_parlamentares * 0.65;
+                            height: $avatar_parlamentares * 0.65;
+                        }
+                    }
+                }
+            }
+        }
+
+        .nav-vertical {
+            li {
+                a {
+                    .avatar100pct {
+                        width: $avatar_parlamentares * 0.5;
+                        height: $avatar_parlamentares * 0.5;
+                    }
+                }
+            }
+        }
+
+        &.active {
+            .nav-horizontal {
+                li {
+                    &:not(:only-child) {
+                        a {
+                            .avatar100pct {
+                                width: $avatar_parlamentares * 0.63;
+                                height: $avatar_parlamentares * 0.63;
+                            }
+                            &:hover {
+                                span {
+                                    top:100%;
+                                    margin-top: 2px;
+                                    font-weight: normal;
+                                    font-size: 14px;
+                                    line-height: 0.9em;
+                                    color: black;
+                                    left: -100px;
+                                    right: -100px;
+                                }
+                                .avatar100pct {
+                                    width: $avatar_parlamentares * 1.1;
+                                    height: $avatar_parlamentares * 1.1;
+                                }
+                            }
+                        }
+                    }
+                    &:not(:only-child):first-child {
+                        a {
+                            &:hover {
+                                span {
+                                    left: -100%;
+                                    right: 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.container-relative {
+            .voltarParlamentar {
+                font-size: 140%;
+                padding: 0px 0px;
+            }
+            .nav-horizontal {
+                padding: $grid-gutter-width / 4;
+                li {
+                    &:only-child {
+                        a {
+                            span {
+                                font-size: 0.9em;
+                            }
+                        }
+                    }
+                }
+            }
+            .nav-pills {
+                li {
+                    a {
+                        padding: 5px 0.5em 5px;
+                        span {
+                            font-size: 1.2em;
+                            &:first-child {
+                                display: block;
+                            }
+                            &:last-child {
+                                display: none;
+                            }
+                        }
+                    }
+                    & > span {
+                        padding: 1px 5px;
+                        font-size: 12px;
+                    }
+                }
+
+            }
+        }
+    }
+
+
+    /* ----- qs-container-------------------------------------------------*/
+
+    .qs-container {
+        .qs-topo {
+            padding: 2px 2px 2px 7px;
+            .qs-autores {
+                li {
+                    a {
+                        .avatar {
+                            height: $navbar-height * 0.5;
+                        }
+                    }
+                    span {
+                        font-size: 85%;
+                    }
+
+                }
+
+            }
+        }
+        .qs-corpo {
+    		margin: 0.4em;
+        }
+    	&.qs-adm {
+    		border-left: 7px solid #FF8F71;
+    	}
+
+    }
+
+
+}
+@media screen and (max-width: 600px) {
+    .linksPages .linkPageLast, .linksPages .linkPageNext, .linksPages .linkPagePrevious,
+    .linksPages .linkPageFirst, .linksPages .linkPageMiddle, .linksPages .linkPageCurrent,
+    .linksPages .linkPagePrint {
+        padding: 0.3em 0.1em;
+    }
+
+    .navbar.main {
+        .nav.nav-usuario {
+            display: none;
+        }
+    }
+    .thumbnail {
+        &.parlamentares {
+            padding: $grid-gutter-width * 0.75;
+
+
+            h2 {
+                a {
+                    padding: 0 ($grid-gutter-width * 0.75)  5px;
+
+                    &.margin-to-left {
+                        margin-right: $grid-gutter-width * -0.75 ;
+                    }
+
+                    &.margin-to-right {
+                        margin-left: $grid-gutter-width * -0.75 ;
+                    }
+                }
+            }
+            .partidoLogo {
+                width: 25%;
+                margin-top: $grid-gutter-width / 6;
+            }
+        }
+        .texto-parlamentar {
+            font-size: 80%;
+        }
+    }
+
+    #sidebar {
+        &.active,
+        &.active-first {
+            .nav {
+                li {
+                    ul{
+                        left: 55%;
+                        top: -20px;
+                        &::before {
+                            left: -5px;
+                            top: 14px;
+                        }
+                    }
+                }
+                & > li {
+                    & > ul{
+                        left: 55%;
+                        top: -4px;
+                        &::before {
+                            left: -5px;
+                            top: 10px;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+
+    .container-parlamentares {
+
+        .nav-horizontal {
+            li {
+                margin: 0 3px;
+                &:last-child:not(:only-child) {
+                    a {
+                        .avatar100pct {
+                            width: $avatar_parlamentares * 0.45;
+                            height: $avatar_parlamentares * 0.45;
+                        }
+                    }
+                }
+            }
+        }
+
+        .nav-vertical {
+            li {
+                &:nth-child(2), &:nth-child(4){
+                    clear:none;
+                }
+                a {
+                    .avatar100pct {
+                        margin: 2px;
+                        width: $avatar_parlamentares * 0.35;
+                        height: $avatar_parlamentares * 0.3;
+                    }
+                }
+            }
+        }
+
+        &.active {
+            .nav-horizontal {
+                li {
+                    margin: 0 2px;
+                    &:not(:only-child) {
+                        a {
+                            .avatar100pct {
+                                width: $avatar_parlamentares * 0.5;
+                                height: $avatar_parlamentares * 0.5;
+                            }
+                            &:hover {
+                                span {
+                                }
+                                .avatar100pct {
+                                    width: $avatar_parlamentares * 0.9;
+                                    height: $avatar_parlamentares * 0.9;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.container-relative {
+            .voltarParlamentar {
+                font-size: 110%;
+                padding: 0px 0px;
+                top:-4px;
+            }
+            .nav-horizontal {
+                padding: 3px;
+            }
+            .nav-pills {
+                li {
+                    a {
+                        padding: 3px ;
+                        span {
+                            font-size: 1em;
+                        }
+                    }
+                    & > span {
+                        padding: 1px 4px 1px 3px;
+                        font-size: 9px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+
+    @include header(75);
+
+    .avatar20pct {
+        padding: 2px;
+    }
+    .thumbnail {
+        &.parlamentares {
+            padding: $grid-gutter-width * 0.5;
+            h2 {
+                font-size: 20px;
+                a {
+                    padding: 0 ($grid-gutter-width * 0.5)  3px;
+
+                    &.margin-to-left {
+                        margin-right: $grid-gutter-width * -0.5 ;
+                    }
+
+                    &.margin-to-right {
+                        margin-left: $grid-gutter-width * -0.5 ;
+                    }
+                }
+            }
+            .partidoLogo {
+                width: 25%;
+                margin-top: $grid-gutter-width / 5;
+            }
+        }
+        .texto-parlamentar {
+            font-size: 80%;
+        }
+    }
+
+
+    #main-container {
+        margin-top: ($navbar-height + 41);
+    }
+    .navbar.main {
+        .container-fluid {
+            display: block;
+        }
+        .navbar-toggle {
+            margin-top: 14px;
+            margin-left: 8px;
+            .icon-bar {
+                background-color: #fff;
+                height: 2px;
+                + .icon-bar {
+                    margin-top: 4px;
+                }
+            }
+        }
+        .navbar-header {
+            float: left;
+        }
+        .navbar-brand {
+            float: right;
+            font-size: 1.8em;
+            padding: 0.35em 0.4em 0;
+        }
+
+
+        .navbar-form {
+            margin-left: 0;
+            margin-right: 0;
+            flex-grow: 0;
+
+            .form-control {
+                font-size: 100%;
+                background-size: auto 60%;
+                padding-left: 35px;
+                color: $sapl_color_materia;
+                background-color: rgb(255,255,255);
+                @include placeholder($sapl_color_materia, 1, 100%, normal);
+                border-bottom: 1px solid #ccc;
+                border-radius: 0;
+            }
+        }
+    }
+
+    #sidebar {
+        top: -42px;
+        z-index: 2000;
+        &.active,
+        &.active-first {
+            .nav {
+                li {
+                    ul{
+                        left: 38px;
+                        top: 15px;
+                        &::before {
+                            top: -5px;
+                            left: 14px;
+                        }
+                    }
+                }
+                & > li {
+                    & > ul{
+                        left: 40px;
+                        top: 35px;
+                        &::before {
+                            top: -5px;
+                            left: 14px;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+
+
+    .container-parlamentares {
+        z-index: 2000;
+        .nav-horizontal {
+            height: $avatar_parlamentares * 0.5;
+            margin-top: 1px;
+            li {
+                height: $avatar_parlamentares * 0.5;
+                &:last-child:not(:only-child) {
+                    a {
+                        .avatar100pct {
+                            width: $avatar_parlamentares * 0.5;
+                            height: $avatar_parlamentares * 0.5;
+                        }
+                    }
+                }
+            }
+        }
+
+        .nav-vertical {
+            li {
+                a {
+                    .avatar100pct {
+                        width: $avatar_parlamentares * 0.35;
+                        height: $avatar_parlamentares * 0.35;
+                    }
+                }
+            }
+        }
+
+        &.active {
+            .nav-horizontal {
+                background-color: rgba(#fff,0.9);
+                height: auto;
+                li {
+                    margin: 4px;
+                    height: $avatar_parlamentares * 0.8;
+                    &:not(:only-child) {
+                        a {
+                            .avatar100pct {
+                                width: $avatar_parlamentares * 0.8;
+                                height: $avatar_parlamentares * 0.8;
+                            }
+                            &:hover {
+                                span {
+                                    display: none;
+                                }
+                                .avatar100pct {
+                                    width: $avatar_parlamentares * 0.8;
+                                    height: $avatar_parlamentares * 0.8;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.container-relative {
+            .voltarParlamentar {
+                font-size: 110%;
+                padding: 0px 0px;
+                top:-4px;
+            }
+            .nav-horizontal {
+                li {
+                    &:only-child {
+                        a {
+                            span {
+                                font-size: 0.65em;
+                                line-height: 1em;
+                                small {
+                                    padding: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .nav-pills {
+                li {
+                    a {
+                        padding: 2px ;
+                        span {
+                            font-size: 0.8em;
+                        }
+                    }
+                    & > span {
+                        font-size: 7px;
+                        padding: 1px 4px 0px 3px;
+                    }
+                }
+
+            }
+        }
+    }
+
+    /* ----- qs-container-------------------------------------------------*/
+
+    .qs-container {
+        .qs-topo {
+            .qs-titulo {
+                font-size: 80%;
+            }
+            .qs-autores {
+                li {
+                    a {
+                        .avatar {
+                            height: $navbar-height * 0.45;
+                        }
+                    }
+                    span {
+                        font-size: 65%;
+                    }
+                    &.linebreak {
+                        &:nth-child(5n) {
+                        	display: table-row;
+                        }
+                    }
+                }
+
+            }
+        }
+        .qs-corpo {
+            font-size: 90%;
+        }
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .navbar-toggle {
+        display: block;
+    }
+}
+@media screen and (min-width: 801px) {
+
+}
+@media screen and (min-width: 1025px) {
+
+}
+@media screen and (min-width: 1153px) {
+
+
+    .nav {
+        & > li {
+            & > a {
+                padding: 1.5em 0.4em;
+                font-size: 85%;
+            }
+        }
+    }
+    .navbar.main {
+        .navbar-brand {
+        }
+    }
+}
+@media screen and (min-width: 1200px) {
+
+    @include mw(95%);
+    @include mwTipo('busca', 100%);
+
+    .nav.principal {
+        & > li {
+            & > a {
+                padding: 1.4em 0em 1.4em;
+                font-size: 90%;
+            }
+        }
+    }
+
+    .linksPages {
+        margin-bottom: $grid-gutter-width * 0.7;
+    }
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        padding-left: $grid-gutter-width * 0.35;
+        padding-right: $grid-gutter-width * 0.35;
+    }
+    .box {
+        margin-bottom: $grid-gutter-width * 0.7;
+    }
+    #main-container {
+        padding-top: $grid-gutter-width * 0.75;
+        .container-fluid {
+            padding-left: $grid-gutter-width * 0.35;
+            padding-right: $grid-gutter-width * 0.35;
+        }
+    }
+}
+@media screen and (min-width: 1369px) {
+
+
+    @include mw(85%);
+    @include mwTipo('busca', 100%);
+
+    .nav.principal {
+        & > li {
+            & > a {
+                padding: 1.25em 0.5em 1.3em;
+                font-size: 95%;
+            }
+        }
+        li ul li a {
+            padding: 5px 13px;
+            font-size: 90%;
+        }
+    }
+    .navbar.main {
+        .navbar-brand {
+            font-size: 1.7em;
+            padding: 0.4em 0.4em 0;
+        }
+        .navbar-form {
+            height: ($navbar-height * 0.7);
+            margin: ($navbar-height * 0.15) 18px;
+            .form-control {
+                font-size: 150%;
+                &:hover, &:focus {
+                    font-size: 170%;
+                }
+            }
+        }
+    }
+    .qs-container {
+        font-size: 115%;
+    }
+}
+@media screen and (min-width: 1601px) {
+
+    @include mw(75%);
+    @include mwTipo('busca', 85%);
+    .nav.principal {
+        & > li {
+            & > a {
+                padding: 1.1em 1.2em 1.05em;
+                font-size: 105%;
+            }
+        }
+    }
+    .navbar.main {
+        .navbar-brand {
+            font-size: 1.9em;
+            padding: 0.4em 0.7em 0;
+            line-height: 0.7em;
+        }
+    }
+    .qs-container {
+        font-size: 120%;
+    }
+}
+
+@media print {
+    .active,
+    .active-first {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    a[href]::after {
+        content: none !important;
+    }
+    #sidebar,
+    .barraMenu {
+        display: none;
+
+    }
+    #main-container {
+        margin-left: 0px;
+
+    }
+
+    .qs-container {
+        &::before {
+            color: #ddd !important;
+            font-size: 10px;
+            border-left: 0px solid white !important;
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#identidade {
+    float: right;
+    padding: 10px;
+}
+
+#identidade h2 {
+    font-family: 'Open Sans', Arial, Verdana, Helvetica, sans-serif;
+    color: #fff !important;
+    font-size: 150%;
+}
+
+#identidade h3 {
+    font-family: 'Open Sans',Arial, Verdana, Helvetica, sans-serif;
+    color: #fff !important;
+    font-weight: normal;
+    font-size: 90%;
+    padding-left: 2px;
+}
+
+.avatar9 {
+    border-radius: 50%;
+    margin: 0 auto 1em auto;
+    height: 10em;
+    width: 10em;
+    overflow: hidden;
+    display: inline-block;
+    border: 1px solid #aaa;
+    box-shadow: 0px 5px 2em #66c8bc;
+}
+
+.avatar3 {
+    border-radius: 50%;
+    margin: 0 auto 0.1em auto;
+    height: 2.7em;
+    width: 2.7em;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.imgAvatar {
+    height: 100%;
+    width: 100%;
+}
+
+.avatar2 {
+    border-radius: 50%;
+    height: 2.3em;
+    width: 2.3em;
+    overflow: hidden;
+    display: inline-block;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------- max-width 604px ---------------------------------------------------------*/
+@media screen and (max-width: 604px) {
+
+    .txt_sislegis .novalei {
+        margin-left: 4em;
+    }
+}
+/*--
+-----------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------- max-width 480px ---------------------------------------------------------*/
+@media screen and (max-width: 480px) {
+
+    .menuItemMateria, .menuItemNorma {
+        display: block;
+        opacity: 1;
+        z-index: 98;
+        position: relative;
+        background-color: transparent !important;
+        width: 100%;
+        margin: 0 !important;
+        box-shadow: 0px 0px 0px #777;
+    }
+    .linksPages .linkPageLast, .linksPages .linkPageNext, .linksPages .linkPagePrevious,
+    .linksPages .linkPageFirst, .linksPages .linkPageMiddle, .linksPages .linkPageCurrent,
+    .linksPages .linkPagePrint {
+        padding: 0.4em 0.1em;
+    }
+    .itemMateria, .itemNorma {
+        font-size: 90%;
+    }
+    .corpoItemMateria, .topoItemNorma, .topoItemMateria {
+        padding: 0.3em 0.5em;
+    }
+    .detalhesMateria {
+        font-size: 90%;
+    }
+    .topoItemNorma .linkItemNorma {
+        padding: 0;
+    }
+    .topoItemMateria .imgsAutores .linebreak:nth-child(5n) {
+        display: table-row;
+    }
+    .dispositivos .novalei {
+        margin-left: 2em;
+    }
+    .dispositivos .artigo, .dispositivos .artigovar , .dispositivos .artigovarvar {
+        text-indent: 1em;
+    }
+
+}

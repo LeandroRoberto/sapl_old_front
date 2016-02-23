@@ -22,9 +22,9 @@ var fonts = {
 
 // css source file: .scss files
 var css = {
-    in: source + 'css/main.scss',
+    in: source + 'scss/main.scss',
     out: dest + 'css/',
-    watch: source + 'css/**/*',
+    watch: source + 'scss/**/*',
     sassOpts: {
         outputStyle: 'nested',
         precison: 3,
@@ -33,9 +33,9 @@ var css = {
     }
 };
 var css2 = {
-    in: source + 'css/estilos.scss',
+    in: source + 'scss/estilos.scss',
     out: dest + 'css/',
-    watch: source + 'css/**/*',
+    watch: source + 'scss/**/*',
     sassOpts: {
         outputStyle: 'nested',
         precison: 3,
