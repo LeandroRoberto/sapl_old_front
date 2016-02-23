@@ -1,0 +1,24 @@
+{
+  "name": "sapl",
+  "authors": [
+    "LeandroRoberto <leandroroberto.br@gmail.com>"
+  ],
+  "description": "Sistema de Apoio ao Processo Legislativo",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "http://sapl.camarajatai.go.gov.br",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#~3.3.6",
+    "font-awesome": "fontawesome#~4.5.0"
+  }
+}
