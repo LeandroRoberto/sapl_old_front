@@ -107,7 +107,7 @@ $sapl_color_diario: #951818; //caa0303
 *::after,
 *::before,
 *:hover {
-    transition: all 0.2s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 .page-container {
     position: relative;
@@ -138,6 +138,7 @@ $sapl_color_diario: #951818; //caa0303
         flex-direction: row;
         flex-wrap: nowrap;
         position: relative;
+
     }
 
     .navbar-toggle {
@@ -662,7 +663,7 @@ h1, h2, h3, h4 {
 
 .box {
     background: rgba(#FFF,.9);
-    border: 1px solid #ddd;
+    border: 1px solid #333;
     margin-bottom: $grid-gutter-width;
     border-radius: 3px;
 }
@@ -689,9 +690,9 @@ hr {
 
 .avatar100pct {
     border-radius: 50%;
-    border: 0px solid white;
+    border: 1px solid rgba(0, 0, 51, 0.02);
     margin: 0 0 0 0;
-    opacity: 0.9;
+    opacity: 1.0;
     width: 100%;
     &:hover {
         opacity: 1;
@@ -703,6 +704,7 @@ hr {
     top: 60px;
     right: 0px;
     z-index: 1000;
+    border: white;
 
     .nav-horizontal {
         margin-top: 5px;
@@ -753,7 +755,7 @@ hr {
                     height: $avatar_parlamentares * 0.6;
                     margin: 5px;
                     box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-                    opacity: .7;
+                    opacity: 0.7;
                     &:hover {
                         box-shadow: 0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32);
                         opacity: 1;
@@ -848,8 +850,8 @@ hr {
                             width: 100%;
                             height: auto;
                             opacity: 0.9;
-                            background: transparent;
-                            padding: 0px;
+                            background-image: radial-gradient(circle, #16a085 65%, white 100%);
+                            padding: 2px;
                             clear: right;
                         }
                         span {
@@ -928,6 +930,7 @@ hr {
     width: 20%;
     border: 0px solid white;
     padding: 0px;
+
 }
 
 .avatar25pct_border_out {
@@ -1034,6 +1037,8 @@ hr {
         padding: 3px 3px 0px 7px;
         background-color: rgba(#003, 0.04);
         width: 100%;
+        border-bottom: solid rgba(#003, 0.02);
+
 		div {
 			display: table;
 		}
@@ -1042,7 +1047,7 @@ hr {
             width: 100%;
             vertical-align: middle;
             font-size: 90%;
-            font-weight: bold;
+            font-weight: none;
             line-height: 120%;
 			color: darken($sapl_color_principal, 10%);
             padding: 5px 5px 5px 10px;
@@ -1060,8 +1065,11 @@ hr {
                 a {
                     display: inline-block;
                     .avatar {
-                        height: $navbar-height * 0.6;
+                        height: $navbar-height * 0.9;
                         border-radius: 50%;
+                        border: white;
+                        border-width: medium;
+                        box-shadow: 0px 0px 5px 2px rgb(22,160,133);
 						opacity: 0.7;
 						&:hover {
 							opacity: 1;
@@ -1094,6 +1102,7 @@ hr {
 		.texto-ementa {
 			color: $sapl_color_secondary;
             display: inline-block;
+            font-weight: bold;
 		}
 
         .qs-detalhes {
@@ -1674,6 +1683,7 @@ hr {
         .navbar-toggle {
             background-color: $hover_background_20p;
         }
+
     }
     #sidebar  {
         left: -250px;
@@ -1686,6 +1696,7 @@ hr {
                             transform: scale(1);
                             opacity: 1;
                             clip: auto;
+
                         }
                     }
                 }
@@ -2059,7 +2070,8 @@ hr {
     @include header(75);
 
     .avatar20pct {
-        padding: 2px;
+        padding: 1px;
+
     }
     .thumbnail {
         &.parlamentares {
@@ -2079,8 +2091,11 @@ hr {
                 }
             }
             .partidoLogo {
-                width: 25%;
+                width: 15%;
                 margin-top: $grid-gutter-width / 5;
+                li {
+transition: transform 0.2s linear;
+}
             }
         }
         .texto-parlamentar {
@@ -2112,8 +2127,9 @@ hr {
         }
         .navbar-brand {
             float: right;
-            font-size: 1.8em;
+            font-size: 1.7em;
             padding: 0.35em 0.4em 0;
+
         }
 
 
@@ -2178,8 +2194,8 @@ hr {
                 &:last-child:not(:only-child) {
                     a {
                         .avatar100pct {
-                            width: $avatar_parlamentares * 0.5;
-                            height: $avatar_parlamentares * 0.5;
+                          width: $avatar_parlamentares * 0.5;
+                          height: $avatar_parlamentares * 0.5;
                         }
                     }
                 }
@@ -2199,16 +2215,16 @@ hr {
 
         &.active {
             .nav-horizontal {
-                background-color: rgba(#fff,0.9);
+                background-color: rgba(#fff,0);
                 height: auto;
                 li {
                     margin: 4px;
-                    height: $avatar_parlamentares * 0.8;
+                    height: $avatar_parlamentares * 0.48;
                     &:not(:only-child) {
                         a {
                             .avatar100pct {
-                                width: $avatar_parlamentares * 0.8;
-                                height: $avatar_parlamentares * 0.8;
+                                width: $avatar_parlamentares * 0.42;
+                                height: $avatar_parlamentares * 0.42;
                             }
                             &:hover {
                                 span {
@@ -2291,7 +2307,10 @@ hr {
             }
         }
         .qs-corpo {
-            font-size: 90%;
+            font-size: 85%;
+            .texto-ementa{
+              font-size: 80%;
+            }
         }
     }
 }
@@ -2343,6 +2362,7 @@ hr {
     .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
         padding-left: $grid-gutter-width * 0.35;
         padding-right: $grid-gutter-width * 0.35;
+
     }
     .box {
         margin-bottom: $grid-gutter-width * 0.7;
@@ -2417,6 +2437,7 @@ hr {
     }
 }
 
+
 @media print {
     .active,
     .active-first {
@@ -2443,137 +2464,11 @@ hr {
             border-left: 0px solid white !important;
         }
     }
-
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#identidade {
-    float: right;
-    padding: 10px;
-}
-
-#identidade h2 {
-    font-family: 'Open Sans', Arial, Verdana, Helvetica, sans-serif;
-    color: #fff !important;
-    font-size: 150%;
-}
-
-#identidade h3 {
-    font-family: 'Open Sans',Arial, Verdana, Helvetica, sans-serif;
-    color: #fff !important;
-    font-weight: normal;
-    font-size: 90%;
-    padding-left: 2px;
-}
-
-.avatar9 {
-    border-radius: 50%;
-    margin: 0 auto 1em auto;
-    height: 10em;
-    width: 10em;
-    overflow: hidden;
-    display: inline-block;
-    border: 1px solid #aaa;
-    box-shadow: 0px 5px 2em #66c8bc;
-}
-
-.avatar3 {
-    border-radius: 50%;
-    margin: 0 auto 0.1em auto;
-    height: 2.7em;
-    width: 2.7em;
-    overflow: hidden;
-    display: inline-block;
-}
-
-.imgAvatar {
-    height: 100%;
-    width: 100%;
-}
-
-.avatar2 {
-    border-radius: 50%;
-    height: 2.3em;
-    width: 2.3em;
-    overflow: hidden;
-    display: inline-block;
-}
-
-
-/*-------------------------------------------------------------------------------------------------------------------------------*/
-/*----------------------------------------------------- max-width 604px ---------------------------------------------------------*/
-@media screen and (max-width: 604px) {
-
-    .txt_sislegis .novalei {
-        margin-left: 4em;
-    }
-}
-/*--
------------------------------------------------------------------------------------------------------------------------------*/
-/*----------------------------------------------------- max-width 480px ---------------------------------------------------------*/
-@media screen and (max-width: 480px) {
-
-    .menuItemMateria, .menuItemNorma {
-        display: block;
-        opacity: 1;
-        z-index: 98;
-        position: relative;
-        background-color: transparent !important;
-        width: 100%;
-        margin: 0 !important;
-        box-shadow: 0px 0px 0px #777;
-    }
-    .linksPages .linkPageLast, .linksPages .linkPageNext, .linksPages .linkPagePrevious,
-    .linksPages .linkPageFirst, .linksPages .linkPageMiddle, .linksPages .linkPageCurrent,
-    .linksPages .linkPagePrint {
-        padding: 0.4em 0.1em;
-    }
-    .itemMateria, .itemNorma {
-        font-size: 90%;
-    }
-    .corpoItemMateria, .topoItemNorma, .topoItemMateria {
-        padding: 0.3em 0.5em;
-    }
-    .detalhesMateria {
-        font-size: 90%;
-    }
-    .topoItemNorma .linkItemNorma {
-        padding: 0;
-    }
-    .topoItemMateria .imgsAutores .linebreak:nth-child(5n) {
-        display: table-row;
-    }
-    .dispositivos .novalei {
-        margin-left: 2em;
-    }
-    .dispositivos .artigo, .dispositivos .artigovar , .dispositivos .artigovarvar {
-        text-indent: 1em;
-    }
-
-}
+#conteudo {
+	background-color: white;
+  border: solid rgb(22,160,133);
+  }

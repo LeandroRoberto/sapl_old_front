@@ -437,6 +437,7 @@ texto, .texto {
 	color: #444 !important;
 	line-height: 1.4em;
 	padding-top: 6px;
+
 }
 
 .borda {
@@ -938,7 +939,7 @@ a:hover h4 {
 	background-color: #f9f9f9 !important;
 	border-bottom: 4px solid $color_principal !important;
 	margin-bottom: 20px !important;
-	padding: 10px;
+	padding: 15px;
 }
 
 /* HOME */
@@ -1118,7 +1119,7 @@ a:hover h4 {
 /* FIM HOME */
 
 .vereador {
-	float: left;
+	float: left;;
 	width: 100%;
 	margin-top: 4px !important;
 	height: 67px;
@@ -1354,6 +1355,7 @@ table {
 	border-spacing: 1px !important;
 	margin-top: 5px;
 	margin-bottom: 10px;
+	border-bottom: solid thin black;
 }
 
 table th {
@@ -1802,6 +1804,7 @@ form {
 	display: table;
 	float: right;
 	text-align: right;
+
 }
 
 .topoMateriaMostrar .imgsAutores .linebreak {
@@ -1818,7 +1821,7 @@ form {
 }
 
 .textoEmenta {
-	font-weight: normal;
+	font-weight: bold;
 	color:  #16A085;
 	padding-bottom: 0.3em;
 	display: block;
@@ -1930,6 +1933,11 @@ form {
 .imgAvatar {
 	height: 100%;
 	width: 100%;
+	border-style: solid;
+	border-width: medium;
+	border-color: white;
+	border-radius: 50%;
+	box-shadow: 0px 0px 5px 2px rgb(22,160,133)
 }
 
 .avatar2 {
@@ -2938,9 +2946,6 @@ form {
 
 
 
-
-
-
 .barraMenu {
 	.nv {
 		& > li  /* LI PRIMEIRO NIVEL */ {
@@ -3119,7 +3124,7 @@ form {
 	.link-atalhos {
 		flex: 1 1 auto;
 	}
-
+		}
 	.barraMenu{
 		.nv {
 			& > li  /* LI PRIMEIRO NIVEL */ {
@@ -3240,4 +3245,118 @@ form {
         font-size: 0.8em;
         margin-left: 0.5em;
     }
+}
+
+
+
+
+
+
+
+
+
+#identidade {
+    float: right;
+    padding: 10px;
+}
+
+#identidade h2 {
+    font-family: 'Open Sans', Arial, Verdana, Helvetica, sans-serif;
+    color: #fff !important;
+    font-size: 150%;
+}
+
+#identidade h3 {
+    font-family: 'Open Sans',Arial, Verdana, Helvetica, sans-serif;
+    color: #fff !important;
+    font-weight: normal;
+    font-size: 90%;
+    padding-left: 2px;
+}
+
+.avatar9 {
+    border-radius: 50%;
+    margin: 0 auto 1em auto;
+    height: 5em;
+    width: 5em;
+    overflow: visible;
+    display: inline-block;
+    border: 1px solid #aaa;
+    box-shadow: 0px 5px 2em #66c8bc;
+}
+
+.avatar3 {
+    border-radius: 50%;
+    margin: 0 auto 0.1em auto;
+    height: 2.7em;
+    width: 2.7em;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.imgAvatar {
+    height: 100%;
+    width: 100%;
+}
+
+.avatar2 {
+    border-radius: 50%;
+    height: 2.3em;
+    width: 2.3em;
+    overflow: hidden;
+    display: inline-block;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------- max-width 604px ---------------------------------------------------------*/
+@media screen and (max-width: 604px) {
+
+    .txt_sislegis .novalei {
+        margin-left: 4em;
+    }
+}
+/*--
+-----------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------- max-width 480px ---------------------------------------------------------*/
+@media screen and (max-width: 480px) {
+
+    .menuItemMateria, .menuItemNorma {
+        display: block;
+        opacity: 1;
+        z-index: 98;
+        position: relative;
+        background-color: transparent !important;
+        width: 100%;
+        margin: 0 !important;
+        box-shadow: 0px 0px 0px #777;
+    }
+    .linksPages .linkPageLast, .linksPages .linkPageNext, .linksPages .linkPagePrevious,
+    .linksPages .linkPageFirst, .linksPages .linkPageMiddle, .linksPages .linkPageCurrent,
+    .linksPages .linkPagePrint {
+        padding: 0.4em 0.1em;
+    }
+    .itemMateria, .itemNorma {
+        font-size: 90%;
+    }
+    .corpoItemMateria, .topoItemNorma, .topoItemMateria {
+        padding: 0.3em 0.5em;
+    }
+    .detalhesMateria {
+        font-size: 90%;
+    }
+    .topoItemNorma .linkItemNorma {
+        padding: 0;
+    }
+    .topoItemMateria .imgsAutores .linebreak:nth-child(5n) {
+        display: table-row;
+    }
+    .dispositivos .novalei {
+        margin-left: 2em;
+    }
+    .dispositivos .artigo, .dispositivos .artigovar , .dispositivos .artigovarvar {
+        text-indent: 1em;
+    }
+
+
 }
