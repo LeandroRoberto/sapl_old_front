@@ -3151,9 +3151,20 @@ form {
 
 
 
+
+
+
 @media print {
     body {
         font-size: 12px !important;
+    }
+
+    @page {
+        size: auto;
+        margin-left: 2cm;
+        margin-right: 1.5cm;
+        margin-top: 1.5cm;
+        margin-bottom: 1.5cm;
     }
 
     .barraSuperior,
@@ -3170,7 +3181,8 @@ form {
     #funcoes, .botao, .typeScreen, #barra-conteudo, #bordaSuperior,
     .conteudoRight, .linksPages, .flagNorma, .flagMateria, .menu-action,
     .container-atalhos, .barraSuperior, .centroWrapper,
-    .container_vigencias {
+    .container_vigencias,
+    #qs-2, #qs-3, #qs-4 {
         display: none;
     }
 
@@ -3198,13 +3210,6 @@ form {
         margin: 0em !important;
     }
 
-    @page {
-        size: auto;
-        margin: 5%;
-        margin-left: 3cm;
-        margin-top: 1.5cm;
-        margin-bottom: 1.5cm;
-    }
 
     .page-break {
         display: block; page-break-before: always;
@@ -3240,4 +3245,36 @@ form {
         font-size: 0.8em;
         margin-left: 0.5em;
     }
+
+    .active,
+    .active-first {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    a[href]::after {
+        content: none !important;
+    }
+    #sidebar,
+    .barraMenu {
+        display: none;
+
+    }
+    #main-container {
+        margin: 0 !important;
+        padding: 0 !important;
+        &.active,
+        &.active-first {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    }
+
+    .qs-container {
+        &::before {
+            color: #ddd !important;
+            font-size: 10px;
+            border-left: 0px solid white !important;
+        }
+    }
+
 }

@@ -2417,37 +2417,6 @@ hr {
     }
 }
 
-@media print {
-    .active,
-    .active-first {
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    a[href]::after {
-        content: none !important;
-    }
-    #sidebar,
-    .barraMenu {
-        display: none;
-
-    }
-    #main-container {
-        margin-left: 0px;
-
-    }
-
-    .qs-container {
-        &::before {
-            color: #ddd !important;
-            font-size: 10px;
-            border-left: 0px solid white !important;
-        }
-    }
-
-}
-
-
-
 
 
 
