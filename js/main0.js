@@ -157,7 +157,8 @@ function initSocialLinks() {
 
 function initSearch(href) {
     qs = $('#qs');
-	var link = "http://sapl.camarajatai.go.gov.br/sapl/qs"
+	//var link = "http://sapl.camarajatai.go.gov.br/sapl/qs"
+  var link = "http://localhost:8080/sapl/qs"
 	var formData = {}
 	var autoscroll= true;
 
