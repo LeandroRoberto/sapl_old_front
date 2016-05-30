@@ -654,10 +654,10 @@ $sapl_color_diario: #951818; //caa0303
 /* -----CORPO---------------------------------------------------------*/
 
 h1, h2, h3, h4 {
-    color: $sapl_color_principal;
-    margin: 0;
-    padding: 0;
-
+    color: #1b4b67;
+    border-bottom: 1px solid #ced;
+    margin-bottom: 0.5em;
+    padding: 0 0.7em 0.3em;
 }
 
 .box {
@@ -1671,6 +1671,12 @@ hr {
 }
 @media screen and (max-width: 800px) {
     @include header(85);
+    
+  	h1 {
+  		margin-bottom: 0.2em;
+  		padding: 0.5em 0.3 em;
+  	}
+
     .navbar.main {
         .navbar-header {
             margin-left: 0;

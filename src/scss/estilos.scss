@@ -58,6 +58,8 @@ $color_borda: #169f84;
 	}
 
 
+
+
 	h1 {
 		margin-bottom: 0.5em;
 		font-size: 120%;
@@ -1788,12 +1790,8 @@ form {
 }
 
 .topoMateriaMostrar .tituloUnico h1 {
-	border-bottom: 1px solid #ced;
-	margin-bottom: 0.5em;
 	padding: 0.7em 0.7em 0.3em;
 	font-size: 180%;
-	color: #1b4b67 !important;
-	font-weight: 300;
 }
 
 .topoMateriaMostrar .imgsAutores {
@@ -2914,11 +2912,6 @@ form {
 	}
 	.conteudoRight div {
 		margin-left: 0em;
-	}
-	h1 {
-		margin-bottom: 0em;
-		padding: 0.5em 0.3 em;
-		font-size: 180%;
 	}
 	#menu-nav:hover ul ul {
 		position: relative;
