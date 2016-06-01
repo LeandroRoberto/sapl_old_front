@@ -1480,6 +1480,24 @@ hr {
 
 
 
+  .popover {
+     min-width: 276px;
+  }
+  .popover-title {
+  text-align: left;
+
+}
+.popover-content {
+text-align: left;
+font-size: 80%;
+}
+
+
+
+
+
+
+
 
 @media screen and (max-width: 1199px) {
     @include header(90);
